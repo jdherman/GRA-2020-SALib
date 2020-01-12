@@ -1,6 +1,4 @@
 import numpy as np
-from matplotlib import pyplot as plt
-from scipy.optimize import differential_evolution
 from SALib.sample import saltelli
 from SALib.analyze import sobol
 
@@ -45,7 +43,7 @@ def hymod(x, mode='optimize'):
   if mode=='simulate':
     return Q
   else:
-    return np.sqrt(np.sum((Q-data_Q)**2))
+    return np.sqrt(np.mean((Q-data_Q)**2))
 
 
 problem = {
